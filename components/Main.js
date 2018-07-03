@@ -27,7 +27,7 @@ export default class Main extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>- NOTER -</Text>
+                    <Text style={styles.headerText}>- Your Notes -</Text>
                 </View>
 
                 <ScrollView style={styles.scrollContainer}>
@@ -49,7 +49,7 @@ export default class Main extends React.Component {
                     </TextInput>
 
                 </KeyboardAvoidingView>
-                
+
                 <TouchableOpacity onPress={ this.addNote.bind(this) } style={styles.addButton}>
                     <Text style={styles.addButtonText}>+</Text>
                 </TouchableOpacity>
@@ -68,6 +68,8 @@ export default class Main extends React.Component {
             });
             this.setState({ noteArray: this.state.noteArray });
             this.setState({noteText:''});
+        }else{
+            Alert.alert("Empty Note!!","You can't add an empty note")
         }
     }
     deleteNote(key){
